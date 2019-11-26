@@ -22,7 +22,7 @@ export default {
     created () {
         cars.getAll().then(response =>{
             this.cars = response.data
-      })
+        })
     }
 
 }

@@ -7,6 +7,9 @@ export default class CarsService {
     getAll() {
         return axios.get('cars')
     }
+    add(car) {
+        return axios.get('cars', car)
+    }
 }
 
 export const cars = new CarsService(); 
