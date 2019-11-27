@@ -7,8 +7,8 @@ export default class CarsService {
     getAll() {
         return axios.get('cars')
     }
-    add(car) {
-        return axios.get('cars', car)
+    addCar(car) {
+        axios.post('cars', car)
     }
 }
 
