@@ -3,7 +3,7 @@
 
         <h3 class="text-center mt-4">Add New Car</h3>
 
-        <form @submit.prevent="onSubmit()">
+        <form @submit.prevent="onSubmit" @reset="resetForm">
             
             <div class="form-group">
                 <label for="brand">Brand</label>
@@ -67,10 +67,12 @@
                 </label>
             </div>
 
-            <div class="form-group text-center">
-                <button type="submit" name="submit" class="btn btn-primary">Submit</button>
-            </div>
+            <div class="form-group mt-4">
+                <button type="submit" name="submit" class="btn btn-primary mr-3">Submit</button>
+                <button type="reset" name="reset" class="btn btn-danger mr-3">Reset</button>
+                <button type="button" name="preview" @click="previewForm" class="btn btn-secondary">Preview</button>
 
+            </div>
         </form>
     </div>
 </template>
@@ -93,6 +95,22 @@ export default {
             this.newCar.isAutomatic = !!this.newCar.isAutomatic
             cars.addCar(this.newCar)
             this.$router.push('/cars')
+        },
+
+        resetForm() {
+            this.newCar = {}
+        },
+
+        previewForm() {
+            alert (`
+            Brand: ${this.newCar.brand}
+            Model: ${this.newCar.model}
+            Year: ${this.newCar.year}
+            Number of Doors: ${this.newCar.numberOfDoors}
+            Maximum speed: ${this.newCar.maxSpeed}
+            Engine: ${this.newCar.engine}
+            ${this.newCar.isAutomatic ? 'Automatic' : 'Manual'}
+            `)
         }
     }
 }
