@@ -90,10 +90,26 @@ export default {
         }
     },
 
+    created() {
+        if(this.$route.params.id){
+            cars.getCar(this.$route.params.id)
+                .then(response =>{this.newCar = response.data})
+        }
+    },
+
     methods: {
         onSubmit() {
+            this.$route.params.id ? this.editCar() : this.addCar
+        },
+
+        addCar() {
             this.newCar.isAutomatic = !!this.newCar.isAutomatic
-            cars.addCar(this.newCar)
+            cars.add(this.newCar)
+            this.$router.push('/cars')
+        },
+
+        editCar() {
+            cars.edit(this.newCar)
             this.$router.push('/cars')
         },
 
