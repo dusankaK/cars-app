@@ -7,17 +7,17 @@
             
             <div class="form-group">
                 <label for="brand">Brand</label>
-                <input v-model="newCar.brand" type="text" class="form-control" aria-describedby="brand" placeholder="Enter brand">
+                <input v-model="newCar.brand" id="brand" type="text" class="form-control" required="required" minlength="2" placeholder="Enter brand">
             </div>
 
             <div class="form-group">
                 <label for="model">Model</label>
-                <input v-model="newCar.model" type="text" class="form-control" aria-describedby="model" placeholder="Enter model">
+                <input v-model="newCar.model" id="model" type="text" class="form-control" required="required" minlength="2" placeholder="Enter model">
             </div>
 
             <div class="form-group">
                 <label for="year">Year</label>
-                    <select class="form-control" v-model="newCar.year">
+                    <select class="form-control" id="year" v-model="newCar.year" required="required">
                         <option v-for="(year, index) in years" :key="index" :value="year">
                             {{ year }}
                         </option>
@@ -26,12 +26,12 @@
 
              <div class="form-group">
                 <label for="doors">Number of Doors</label>
-                <input v-model="newCar.numberOfDoors" type="number" class="form-control" aria-describedby="doors" placeholder="Enter number of doors">
+                <input v-model="newCar.numberOfDoors" id="number" type="number" class="form-control" required="required" placeholder="Enter number of doors">
             </div>
 
              <div class="form-group">
                 <label for="speed">Max Speed</label>
-                <input v-model="newCar.maxSpeed" type="number" class="form-control" aria-describedby="speed" placeholder="Enter max speed">
+                <input v-model="newCar.maxSpeed"  id="speed" type="number" class="form-control" required="required" placeholder="Enter max speed">
             </div>
 
             <div class="form-group">
@@ -39,29 +39,29 @@
                     <div class="col-8">    
                         <div class="custom-control custom-radio">
                             <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="engine" value="diesel" v-model="newCar.engine">Diesel
+                            <input type="radio" class="form-check-input" name="engine" value="diesel" required="required" v-model="newCar.engine">Diesel
                             </label>
                         </div>
                         <div class="custom-control custom-radio">
                             <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="engine" value="petrol" v-model="newCar.engine">Petrol
+                            <input type="radio" class="form-check-input" name="engine" value="petrol" required="required" v-model="newCar.engine">Petrol
                             </label>
                         </div>
                         <div class="custom-control custom-radio">
                             <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="engine" value="electric" v-model="newCar.engine">Electric
+                            <input type="radio" class="form-check-input" name="engine" value="electric" required="required" v-model="newCar.engine">Electric
                             </label>
                         </div>
                         <div class="custom-control custom-radio">
                             <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="engine" value="hybrid" v-model="newCar.engine">Hybrid
+                            <input type="radio" class="form-check-input" name="engine" value="hybrid" required="required" v-model="newCar.engine">Hybrid
                             </label>
                         </div>
                     </div>
                 </div>
 
             <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="true" v-model="newCar.isAutomatic">
+                <input class="form-check-input" type="checkbox" value="true" required="required" v-model="newCar.isAutomatic">
                 <label class="form-check-label" for="isAutomatic">
                     Is Automatic
                 </label>
