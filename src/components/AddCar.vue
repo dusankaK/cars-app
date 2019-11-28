@@ -99,7 +99,7 @@ export default {
 
     methods: {
         onSubmit() {
-            this.$route.params.id ? this.editCar() : this.addCar
+            this.$route.params.id ? this.editCar() : this.addCar()
         },
 
         addCar() {

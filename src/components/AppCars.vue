@@ -16,6 +16,7 @@
                     </ul>
                     <div class="card-body">
                         <router-link :to="{ name: 'edit', params: {id: car.id}}" class="card-link">Edit</router-link>
+                        <button @click="removeCar(car.id)" class="btn btn-danger ml-4">Delete</button>
                     </div>
                 </div> 
             </div>
@@ -36,6 +37,23 @@ export default {
         cars.getAll().then(response =>{
             this.cars = response.data
         })
+    },
+
+    watch: {
+        cars() {
+            cars.getAll().then(response => {
+            this.cars = response.data
+            })
+        }
+    },
+
+    methods: {
+        removeCar(id) {
+            let confirmDeletion = confirm('Are yo really sure you want to delete this car?')
+            if(confirmDeletion) {
+                cars.remove(id)
+            }
+        }
     }
 }
 </script>
